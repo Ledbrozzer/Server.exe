@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Análise de Abastecimento</title>
+</head>
+<body>
+    <main>
+        <h1>Carregar Planilha de Abastecimento</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="fileInput">Selecione um arquivo Excel:</label>
+            <input type="file" id="fileInput" name="file" accept=".xlsx" title="Selecione um arquivo Excel">
+            <button type="submit" title="Upload do arquivo Excel">Upload</button>
+        </form>
+        <div id="results">
+            <h2>Resultados:</h2>
+            <div id="message"></div>
+            <a id="downloadLink" href="#">Baixar Arquivo Processado</a>
+        </div>
+        <div id="filters">
+            <h2>Filtros:</h2>
+            <form id="filterForm">
+                <label for="veiculoEquip">Veículo/Equip.:</label>
+                <input type="text" id="veiculoEquip" name="veiculoEquip">
+                <label for="dataInicial">Data Inicial:</label>
+                <input type="date" id="dataInicial" name="dataInicial">
+                <label for="dataFinal">Data Final:</label>
+                <input type="date" id="dataFinal" name="dataFinal">
+                <button type="submit">Aplicar Filtros</button>
+            </form>
+            <a id="downloadFilteredLink" href="#">Baixar Dados Filtrados</a>
+        </div>
+        <div id="controls">
+            <button id="cleanAndExit" title="Limpar arquivos e finalizar o servidor">Limpar e Fechar</button>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
